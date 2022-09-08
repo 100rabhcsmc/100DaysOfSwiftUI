@@ -15,7 +15,8 @@
  </div>
 
 Hey friends 👋 <br>
-Welcome to the 100 Days Of SwiftUI challenge.The Main motive for the challenge is, I want to make a change. I want to see myself as a better developer and learn something new in daily life.
+Welcome to the 100 Days Of SwiftUI challenge. <br>
+The Main motive for the challenge is, I want to make a change. I want to see myself as a better developer and learn something new in daily life.
 
 I’m super excited for the 100 Days Of SwiftUI challenge.
 
@@ -23,7 +24,7 @@ This challenge taking from <a href="https://www.hackingwithswift.com/100">100Day
 You can also follow my blog <a href="https://dev.to/100rabhcsmc">Saurabh Blog</a>
 
 Here is the list of My SwiftUI Journey 👇<br>
-I have been covered the Basic so here will start from the Projet.
+I have been covered the Basic In the <a href="https://github.com/100rabhcsmc/100DaysOfSwift">100DaysOfSwift</a> so here will start from the Project.
 
 <div align='center'>
     <h1>Days 1-12 : Introduction to Swift</h1> 
