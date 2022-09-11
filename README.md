@@ -31,7 +31,7 @@ I have been covered the Basic In the <a href="https://github.com/100rabhcsmc/100
  </div>
 
 1. <a href="https://github.com/100rabhcsmc/100DaysOfSwift/tree/main/Day001-Variables_DataType_Stringinterpolation_Type%20annotations">Day 1 Variables,Data Type,String interpolation,Type annotations</a>
-2. <a href="https://github.com/100rabhcsmc/100DaysOfSwift/tree/main/Day002-Arrays_sets_Tuples_dictionaries_and_enums">Day 2 Arrays, sets, Tuples, dictionaries and enums </a>
+2. <a href="https://github.com/100rabhcsmc/100DaysOfSwift/tree/main/Day002-Arrays_sets_Tuples_dictionaries_and_enums">Day 2 Arrays, sets, Tuples, dictionaries & enums </a>
 3. <a href="https://github.com/100rabhcsmc/100DaysOfSwift/tree/main/Day003-Operators_and_conditions">Day 3 Operators and conditions</a>
 4. <a href="https://github.com/100rabhcsmc/100DaysOfSwift/tree/main/Day004_Loops">Day 4 Loops </a>
 5. <a href="https://github.com/100rabhcsmc/100DaysOfSwift/tree/main/Day005-Functions">Day 5 Functions </a>
