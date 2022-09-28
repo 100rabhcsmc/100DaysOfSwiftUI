@@ -15,7 +15,7 @@
  </div>
 
 Hi friends 👋 <br>
-Welcome to the 100 Days Of SwiftUI challenges. <br>
+Welcome to the 100 Days Of SwiftUI challenges.<br>
 The Main motive for the challenge is, I want to make a change. <br> I want to see myself as a better developer and learn something new in daily life.
 
 I’m super excited for the 100 Days Of SwiftUI challenge.
