@@ -8,21 +8,59 @@
 import SwiftUI
 
 struct ContentView: View {
-    let student = ["Saurabh","Sachin","Aditya"]
+    @State private var checkAmount = 0.0
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 20
     
-    @State private var selectedStudent = "Saurabh"
+    let tipPercentages = [10, 15, 20, 25, 0]
+    
+    var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        let tipSelection = Double(tipPercentage)
+
+        let tipValue = checkAmount / 100 * tipSelection
+        let grandTotal = checkAmount + tipValue
+        let amountPerPerson = grandTotal / peopleCount
+
+        return amountPerPerson
+    }
+
     
     var body: some View {
-        NavigationView{
-            Form{
-                Picker("Select the student",selection: $selectedStudent){
-                    ForEach(student ,id:\.self){
-                        Text("Row \($0)")
-                    }
-                }
-            }
-        }
-    }
+           NavigationView {
+               Form{
+                   Section{
+                       TextField("Enter Name", value: $checkAmount,format: .currency(code: Locale.current.currencyCode ?? "INR")).keyboardType(.decimalPad)
+                       
+                   }
+                   
+                   Section{
+                       Picker("Tip Percentage",selection: $tipPercentage){
+                           ForEach(tipPercentages,id: \.self){
+                               Text($0,format: .percent)
+                           }
+                       }
+                       .pickerStyle(.segmented)
+                   } header: {
+                       Text("How much tip do you want to leave?")
+                   }
+                   
+                   Picker("Number of People",selection: $numberOfPeople){
+                       ForEach(2 ..< 100){
+                           Text("\($0) Peoples")
+                       }
+                   }
+                   
+                   Section{
+                       Text(totalPerPerson,format: .currency(code: Locale.current.currencyCode ?? "INR"))
+                   }
+                 
+               }
+               .navigationTitle("WeSplit")
+           }
+           
+           
+       }
 }
 
 
