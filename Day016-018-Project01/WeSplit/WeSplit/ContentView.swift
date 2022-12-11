@@ -28,6 +28,7 @@ struct ContentView: View {
     
     var body: some View {
            NavigationView {
+
                Form{
                    Section{
                        TextField("Enter Name", value: $checkAmount,format: .currency(code: Locale.current.currencyCode ?? "INR")).keyboardType(.decimalPad)
@@ -54,12 +55,10 @@ struct ContentView: View {
                    Section{
                        Text(totalPerPerson,format: .currency(code: Locale.current.currencyCode ?? "INR"))
                    }
-                 
                }
                .navigationTitle("WeSplit")
+               
            }
-           
-           
        }
 }
 
