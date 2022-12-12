@@ -23,7 +23,7 @@ I’m super excited for the 100 Days Of SwiftUI challenge.
 This challenge taking from <a href="https://www.hackingwithswift.com/100">100DaysOfSwift</a><br>
 You can also follow my blog <a href="https://dev.to/100rabhcsmc">Saurabh Blog</a>
 
-Here is the list of My SwiftUI Journey👇<br>
+Here is the list of My SwiftUI Journey👇 <br>
 I have been covered the Basic In the <a href="https://github.com/100rabhcsmc/100DaysOfSwift">100DaysOfSwift</a> so here will start from the Project.
 
 <div align='center'>
