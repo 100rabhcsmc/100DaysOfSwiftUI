@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack{
-            VStack(spacing:0){
-                Color.red
-                Color.blue
-            }
-            Text("Hello Saurbah").foregroundColor(.secondary) .padding(20).background(.yellow)
-               
-        }.ignoresSafeArea()
+        //Three type of Gradients
+        //1.linearGradiant
+        LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
+        
+        //2.RadialGradient
+        RadialGradient(gradient:Gradient(colors: [.white,.pink]), center: .center, startRadius: 20, endRadius: 200)
+        
+        //3.AngularGradient
+        AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center)
         
     }
 }
