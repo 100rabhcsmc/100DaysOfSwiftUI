@@ -9,16 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        //Three type of Gradients
-        //1.linearGradiant
-        LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
-        
-        //2.RadialGradient
-        RadialGradient(gradient:Gradient(colors: [.white,.pink]), center: .center, startRadius: 20, endRadius: 200)
-        
-        //3.AngularGradient
-        AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center)
-        
+        //Button & Image
+        VStack{
+            Button("click me",role: .destructive, action: Clicked).buttonStyle(.borderedProminent).tint(.green).foregroundColor(.black)
+            
+            //custume button
+            Button{
+                print("button Tapped")
+            } label: {
+                Text("tap me").padding().foregroundColor(.black).background(.green)
+            }
+            
+            //image
+            Button{
+                print("clicked on the image")
+            } label: {
+                Image(systemName: "arrow.clockwise.heart")
+            }
+            
+            //image and text one line
+            Button{
+                print("clicked on the image")
+            } label: {
+               Label("Click", systemImage:"location.circle.fill" )
+            }
+        }
+    }
+    func Clicked(){
+        print("great you have clicked me")
     }
 }
 
