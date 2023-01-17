@@ -8,35 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showAlert = false;
     var body: some View {
-        //Button & Image
-        VStack{
-            Button("click me",role: .destructive, action: Clicked).buttonStyle(.borderedProminent).tint(.green).foregroundColor(.black)
-            
-            //custume button
-            Button{
-                print("button Tapped")
-            } label: {
-                Text("tap me").padding().foregroundColor(.black).background(.green)
-            }
-            
-            //image
-            Button{
-                print("clicked on the image")
-            } label: {
-                Image(systemName: "arrow.clockwise.heart")
-            }
-            
-            //image and text one line
-            Button{
-                print("clicked on the image")
-            } label: {
-               Label("Click", systemImage:"location.circle.fill" )
-            }
+        //Showing alert messages
+        Button("Click me"){
+            showAlert = true
         }
-    }
-    func Clicked(){
-        print("great you have clicked me")
+        .alert("Hello SwiftUI",isPresented: $showAlert){
+            Button("Cancel",role: .cancel){}
+            Button("Delete",role: .destructive){}
+        } message: {
+            Text("here is your text")
+        }
     }
 }
 
