@@ -15,17 +15,17 @@ struct ContentView: View {
     var body: some View {
         //Showing the player’s score with an alert
         ZStack{
-            Color.blue
+            LinearGradient(gradient: Gradient(colors: [.blue,.black]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
         VStack{
-            Text("Here is Random number \(correctAnswer)").foregroundColor(.white)
-            Text(countries[correctAnswer]).foregroundColor(.white)
+            Text("Here is Random number \(correctAnswer)").foregroundColor(.white).font(.subheadline.weight(.heavy))
+            Text(countries[correctAnswer]).foregroundColor(.white).font(.largeTitle.weight(.semibold))
             ForEach(0..<3){number in
                 Button{
                     //flag is here
                     flagTapped(number)
                 } label: {
-                    Image(countries[number]).renderingMode(.original)
+                    Image(countries[number]).renderingMode(.original).clipShape(Capsule()).shadow(radius: 5)
                 }
             }
         }
