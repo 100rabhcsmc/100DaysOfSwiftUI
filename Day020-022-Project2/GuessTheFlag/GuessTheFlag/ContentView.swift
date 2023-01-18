@@ -8,18 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showAlert = false;
+    var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
+    var correctAnswer = Int.random(in: 0...2)
     var body: some View {
-        //Showing alert messages
-        Button("Click me"){
-            showAlert = true
+        //Stacking up buttons
+        ZStack{
+            Color.blue
+                .ignoresSafeArea()
+        VStack{
+            Text("Here is Random number \(correctAnswer)").foregroundColor(.white)
+            Text(countries[correctAnswer]).foregroundColor(.white)
+            ForEach(0..<3){number in
+                Button{
+                    //flag is here
+                } label: {
+                    Image(countries[number]).renderingMode(.original)
+                }
+            }
         }
-        .alert("Hello SwiftUI",isPresented: $showAlert){
-            Button("Cancel",role: .cancel){}
-            Button("Delete",role: .destructive){}
-        } message: {
-            Text("here is your text")
-        }
+    }
     }
 }
 
