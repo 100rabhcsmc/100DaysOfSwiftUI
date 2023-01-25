@@ -8,22 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var colorChange = false;
     var body: some View {
-        //Why modifier order matters
-        VStack{
-            Button("Hello, world!") {
-                print(type(of: self.body))
-            }
-            .background(.red)
-            .frame(width: 200, height: 200)
-            
-            
-            Button("Hello, world!") {
-                print(type(of: self.body))
-            }
-            .frame(width: 200, height: 200)
-            .background(.red)
-        }
+        
+        //Conditional modifiers
+        Button("Please click & change the color"){
+            colorChange.toggle()
+        }.foregroundColor(colorChange ? .blue : .red)
+        
     }
 }
 
