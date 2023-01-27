@@ -7,20 +7,31 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    let FirstName = Text("Saurabh")
-    let LastName = Text("Chavan")
-    
-    @ViewBuilder var Name:some View{
-        Text("Saurabh")
-        Text("Chavan")
-    
-    }
+struct Name: View {
+    var text:String
     var body: some View {
-        //Views as properties
-        FirstName.foregroundColor(.red)
-        LastName.foregroundColor(.blue)
-        Name
+        Text(text)
+            .font(.title)
+            .padding()
+//            .foregroundColor(.red)
+            .background(.green).clipShape(Capsule())
+    }
+}
+
+struct ContentView: View {
+   
+    var body: some View {
+        //View composition
+        //view break into small part
+        VStack (spacing: 20){
+//            Text("First").font(.title).padding().foregroundColor(.red).background(.green).clipShape(Capsule())
+//
+//            Text("Second").font(.title).padding().foregroundColor(.red).background(.green).clipShape(Capsule())
+            
+            Name(text: "saurabh").foregroundColor(.white)
+            Name(text: "Sachin").foregroundColor(.purple)
+            
+        }
     }
 }
 
