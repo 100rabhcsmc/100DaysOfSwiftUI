@@ -11,22 +11,17 @@ struct ContentView: View {
     //Selecting dates and times with DatePicker
     @State private var wakeUp = Date.now;
     var body: some View {
-        VStack{
-            Text("Hello \(wakeUp.formatted())")
-            DatePicker("Please select the date & time", selection: $wakeUp)
-            
-            DatePicker("Please select the date & time", selection: $wakeUp)
-            //label taking space
-                .labelsHidden()
-            
-            //show me the date or time
-            DatePicker("Please give me the  date or time", selection: $wakeUp,displayedComponents: .date)
-            DatePicker("Please give me the  date or time", selection: $wakeUp,displayedComponents: .hourAndMinute)
-            
-            //we can select only future dates
-            DatePicker("Please select the date & time", selection: $wakeUp,in:Date.now...)
-            
-        }
+        Text(Date.now.formatted(date: .long, time: .shortened))
+        
+    }
+    
+    //how apple work for us to pick date
+    
+    func trivialExample(){
+        var now = Date.now
+        var tommarow = Date.now.addingTimeInterval(86400)
+        var range = now...tommarow
+        print("range\(range)")
     }
 }
 
