@@ -8,20 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
-    //Selecting dates and times with DatePicker
-    @State private var wakeUp = Date.now;
+    @State private var wakeUp = Date.now
+    @State private var sleepAmount = 8.0
+    @State private var coffeeAmount = 1
     var body: some View {
-        Text(Date.now.formatted(date: .long, time: .shortened))
-        
+        NavigationView{
+        VStack{
+            Text("When do you want to wake up?").font(.headline)
+            DatePicker("Please pick a date", selection: $wakeUp,displayedComponents: .hourAndMinute).labelsHidden()
+            
+            Text("Desired amount of sleep?").font(.headline)
+            Stepper("\(sleepAmount.formatted())", value: $sleepAmount,in: 4...12,step: 0.25)
+            
+            Text("Daily coffee intake?").font(.headline)
+            Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cups",value: $coffeeAmount,in: 1...20)
+        }
+        .navigationTitle("Better Rest")
+        .toolbar{
+            Button("Calculatar", action: calculateBedtime)
+        }
     }
-    
-    //how apple work for us to pick date
-    
-    func trivialExample(){
-        var now = Date.now
-        var tommarow = Date.now.addingTimeInterval(86400)
-        var range = now...tommarow
-        print("range\(range)")
+       
+    }
+    func calculateBedtime(){
+        print("Helllo saurabh")
     }
 }
 
