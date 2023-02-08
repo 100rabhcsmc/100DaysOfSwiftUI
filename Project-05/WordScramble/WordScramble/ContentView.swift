@@ -8,47 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    var name = ["Sach","Sau","Adi"]
+    @State private var usedWords = [String]()
+    @State private var rootWord = ""
+    @State private var newWord =  ""
+  
     var body: some View {
-        VStack{
+        NavigationView{
             List{
-                Section("Section 1"){
-                    Text("Static row 1")
-                    Text("Static row 2")
+                Section{
+                    TextField("Enter the name", text: $newWord)
+                        .autocapitalization(.none)
                 }
-                Section("Section 2"){
-                    ForEach(1..<3){
-                        Text("\($0)")
-                    }
-
-                }
-                Section("Section 3"){
-                    Text("Static row 3")
-                    Text("Staic row 4")
-                }
-            }.listStyle(.grouped)
-            
-            //Best feature personally like
-            List{
-                Section("Section 2"){
-                    ForEach(1..<3){
-                        Text("\($0)")
+                Section{
+                    ForEach(usedWords,id:\.self){word in
+                        HStack{
+                            Image(systemName: "\(word.count).circle")
+                            Text(word)
+                        }
                     }
                 }
-            }.listStyle(.sidebar)
-            
-            //insteat of right forEach we can also write this way
-            List(0..<3){
-               Text("Show the row \($0)")
-            }.listStyle(.sidebar)
-            
-            
-            //forEach on the varibale
-            List(name,id: \.self){
-                Text($0)
             }
-            
         }
+        .navigationTitle(rootWord)
+        .onSubmit(addNewWord)
+        
+    }
+        
+    func addNewWord(){
+        let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        guard answer.count > 0 else {return}
+        
+        //Extra validation to come
+        withAnimation{
+            usedWords.insert(answer, at: 0)
+        }
+        newWord = ""
     }
 }
 
