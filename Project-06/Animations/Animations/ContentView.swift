@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var animationAmount2 = 1.0
     
     var body: some View {
-        VStack{
+        VStack(spacing: 100){
             Button("Tap me"){
                 animationAmount += 0.3
             }
@@ -29,24 +29,25 @@ struct ContentView: View {
             )
             .scaleEffect(animationAmount)
             .animation(.easeInOut(duration: 3).repeatForever(autoreverses: true), value: animationAmount)
-        }
-        
-        //second
-        Button("Tap me"){
-            //animationAmount += 0.3
-        }
-        .padding(50)
-        .background(.red)
-        .foregroundColor(.white)
-        .clipShape(Circle())
-        .overlay(
-            Circle()
-                .stroke(.red)
-                .scaleEffect(animationAmount2)
-                .opacity(2 - animationAmount2)
-                .animation(.easeInOut(duration: 3).repeatForever(autoreverses: true), value: animationAmount2)
-        ).onAppear {
-            animationAmount2 = 2
+            
+            
+            //second
+            Button("Tap me"){
+                //animationAmount += 0.3
+            }
+            .padding(50)
+            .background(.red)
+            .foregroundColor(.white)
+            .clipShape(Circle())
+            .overlay(
+                Circle()
+                    .stroke(.red)
+                    .scaleEffect(animationAmount2)
+                    .opacity(2 - animationAmount2)
+                    .animation(.easeInOut(duration: 3).repeatForever(autoreverses: true), value: animationAmount2)
+            ).onAppear {
+                animationAmount2 = 2
+            }
         }
         }
 }
