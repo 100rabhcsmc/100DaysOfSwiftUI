@@ -20,10 +20,12 @@ struct ContentView: View {
               DragGesture()
                 .onChanged{dragAmount = $0.translation}
                 .onEnded{_ in
+                    withAnimation{
                         dragAmount = .zero
+                    }
                 }
             )
-            .animation(.spring(), value: dragAmount)
+          
     }
 }
 
