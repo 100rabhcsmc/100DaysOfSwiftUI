@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct User {
-    var firstname = "Saurabh"
-    var lastname = "chavan"
+class User: ObservableObject {
+   @Published var firstname = "Saurabh"
+    @Published var lastname = "chavan"
 }
 
 struct ContentView: View {
-    //Why @State only works with structs
-     @State private var users = User()
+    //@StateObject, @ObservedObject, and @EnvironmentObject
+     @StateObject var users = User()
     var body: some View {
         VStack {
             Text("Hello \(users.firstname) \(users.lastname)")
