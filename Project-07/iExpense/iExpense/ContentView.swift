@@ -7,13 +7,19 @@
 
 import SwiftUI
 
+struct User {
+    var firstname = "Saurabh"
+    var lastname = "chavan"
+}
+
 struct ContentView: View {
+    @State private var users = User()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Hello \(users.firstname) \(users.lastname)")
+            
+            TextField("First name", text: $users.firstname)
+            TextField("Last Name", text: $users.lastname)
         }
         .padding()
     }
