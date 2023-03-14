@@ -13,7 +13,8 @@ struct User {
 }
 
 struct ContentView: View {
-    @State private var users = User()
+    //Why @State only works with structs
+     @State private var users = User()
     var body: some View {
         VStack {
             Text("Hello \(users.firstname) \(users.lastname)")
