@@ -5,24 +5,35 @@
 //  Created by Saurabh Chavan on 14/03/23.
 //
 
+
 import SwiftUI
 
-class User: ObservableObject {
-   @Published var firstname = "Saurabh"
-    @Published var lastname = "chavan"
+struct secondView:View{
+    //@Environment it allows us to create properties that store values provided to us externally
+    @Environment(\.dismiss) var dismiss
+    let name : String
+    
+    var body: some View{
+        VStack{
+        Text("Hello \(name)")
+        Button("Dismiss") {
+            dismiss()
+        }
+    }
+    }
 }
 
 struct ContentView: View {
-    //@StateObject, @ObservedObject, and @EnvironmentObject
-     @StateObject var users = User()
+    //Showing and hiding views
+    @State private var showSheet = false
+     
     var body: some View {
-        VStack {
-            Text("Hello \(users.firstname) \(users.lastname)")
-            
-            TextField("First name", text: $users.firstname)
-            TextField("Last Name", text: $users.lastname)
+        Button("Show sheet"){
+            showSheet.toggle()
         }
-        .padding()
+        .sheet(isPresented: $showSheet){
+            secondView(name:"Saurabh")
+        }
     }
 }
 
