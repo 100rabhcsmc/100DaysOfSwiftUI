@@ -8,33 +8,38 @@
 
 import SwiftUI
 
-struct secondView:View{
-    //@Environment it allows us to create properties that store values provided to us externally
-    @Environment(\.dismiss) var dismiss
-    let name : String
-    
-    var body: some View{
-        VStack{
-        Text("Hello \(name)")
-        Button("Dismiss") {
-            dismiss()
-        }
-    }
-    }
-}
-
 struct ContentView: View {
-    //Showing and hiding views
-    @State private var showSheet = false
-     
-    var body: some View {
-        Button("Show sheet"){
-            showSheet.toggle()
+    //Deleting items using onDelete()
+    @State private var numbers = [Int]()
+    @State private var currentNumber = 1
+    var body: some View{
+        NavigationView{
+        VStack{
+            List{
+                ForEach(numbers, id: \.self) {
+                    Text("Row \($0)")
+                }
+                .onDelete(perform: removeRows)
+            }
+            
+            
+            Button("Add Number"){
+                numbers.append(currentNumber)
+                currentNumber += 1
+            }
         }
-        .sheet(isPresented: $showSheet){
-            secondView(name:"Saurabh")
+        .navigationTitle("OnDelete")
+        .toolbar {
+            EditButton()
         }
     }
+       
+}
+    
+    func removeRows(at offsets:IndexSet){
+        numbers.remove(atOffsets: offsets)
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
