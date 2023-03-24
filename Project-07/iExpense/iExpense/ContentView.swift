@@ -8,16 +8,24 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    //One common way to store a small amount of datais called UserDefaults
-    @AppStorage("tapCount") private var tapCount = 0
+struct User : Codable {
+    var firstName : String
+    var lastName : String
+}
 
-        var body: some View {
-            Button("Tap count: \(tapCount)") {
-                tapCount += 1
+struct ContentView: View {
+    @State private var user = User(firstName: "Saurabh", lastName: "Chavan")
+    var body: some View{
+        VStack{
+            Button("Save user") {
+                let encoder = JSONEncoder()
+                
+                if let data = try? encoder.encode(user){
+                    UserDefaults.standard.set(data, forKey: "UserData")
+                }
             }
         }
-       
+    }
 }
     
     
