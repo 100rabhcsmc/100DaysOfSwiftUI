@@ -7,28 +7,20 @@
 
 import SwiftUI
 
-struct User : Codable{
-    let name : String
-    let address : Address
-}
-
-struct Address:Codable {
-    let street : String
-    let city : String
-}
-
 struct ContentView: View {
-    let layout = [
-        GridItem(.adaptive(minimum: 80, maximum: 120)),
-    ]
+   
     var body: some View {
-        ScrollView{
-            LazyVGrid(columns: layout) {
-                ForEach(0..<100) {
-                    Text("\($0)")
+        NavigationView {
+            List(1..<20){ row in
+                NavigationLink {
+                    Text("Details \(row)")
+                } label: {
+                    Text("Details \(row)")
                 }
             }
+           .navigationTitle("SwiftUI")
         }
+      
     }
 }
 
